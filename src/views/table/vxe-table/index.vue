@@ -15,7 +15,7 @@ import {
 } from "vxe-table"
 
 defineOptions({
-  // 命名当前组件
+  // 命名当前组件，与路由的name保持一致，才可以设置路由缓存
   name: "VxeTable"
 })
 

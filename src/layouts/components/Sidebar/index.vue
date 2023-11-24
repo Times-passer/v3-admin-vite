@@ -51,6 +51,22 @@ const tipLineWidth = computed(() => {
 const hiddenScrollbarVerticalBar = computed(() => {
   return layoutMode.value === "top" ? "none" : "block"
 })
+
+const { count, double } = storeToRefs(permissionStore)
+const count2 = computed(() => permissionStore.count)
+
+console.log("permissionStore", permissionStore.count, permissionStore.double)
+console.log("storeToRefs", count.value, double.value)
+console.log("count2", count2.value)
+
+permissionStore.$patch((state) => {
+  state.count++
+  state.age = 120
+})
+
+console.log("permissionStore", permissionStore.count, permissionStore.double)
+console.log("storeToRefs", count.value, double.value)
+console.log("count2", count2.value)
 </script>
 
 <template>
