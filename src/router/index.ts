@@ -55,49 +55,65 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: "Dashboard",
         meta: {
           title: "首页",
-          svgIcon: "dashboard",
+          elIcon: "House",
           affix: true
         }
       }
     ]
   },
+  // {
+  //   path: "/unocss",
+  //   component: Layouts,
+  //   redirect: "/unocss/index",
+  //   children: [
+  //     {
+  //       path: "index",
+  //       component: () => import("@/views/unocss/index.vue"),
+  //       name: "UnoCSS",
+  //       meta: {
+  //         title: "UnoCSS",
+  //         svgIcon: "unocss"
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: "/link",
+  //   meta: {
+  //     title: "外链",
+  //     svgIcon: "link"
+  //   },
+  //   children: [
+  //     {
+  //       path: "https://juejin.cn/post/7089377403717287972",
+  //       component: () => {},
+  //       name: "Link1",
+  //       meta: {
+  //         title: "中文文档"
+  //       }
+  //     },
+  //     {
+  //       path: "https://juejin.cn/column/7207659644487139387",
+  //       component: () => {},
+  //       name: "Link2",
+  //       meta: {
+  //         title: "新手教程"
+  //       }
+  //     }
+  //   ]
+  // },
   {
-    path: "/unocss",
+    path: "/",
     component: Layouts,
-    redirect: "/unocss/index",
+    redirect: "/config-file",
     children: [
       {
-        path: "index",
-        component: () => import("@/views/unocss/index.vue"),
-        name: "UnoCSS",
+        path: "/config-file",
+        component: () => import("@/views/config-file/index.vue"),
+        name: "ConfigFile",
         meta: {
-          title: "UnoCSS",
-          svgIcon: "unocss"
-        }
-      }
-    ]
-  },
-  {
-    path: "/link",
-    meta: {
-      title: "外链",
-      svgIcon: "link"
-    },
-    children: [
-      {
-        path: "https://juejin.cn/post/7089377403717287972",
-        component: () => {},
-        name: "Link1",
-        meta: {
-          title: "中文文档"
-        }
-      },
-      {
-        path: "https://juejin.cn/column/7207659644487139387",
-        component: () => {},
-        name: "Link2",
-        meta: {
-          title: "新手教程"
+          title: "爬虫配置文件",
+          elIcon: "SetUp"
         }
       }
     ]
@@ -269,20 +285,20 @@ export const asyncRoutes: RouteRecordRaw[] = [
     },
     children: [
       {
+        path: "directive",
+        component: () => import("@/views/permission/directive.vue"),
+        name: "DirectivePermission",
+        meta: {
+          title: "指令权限" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+        }
+      },
+      {
         path: "page",
         component: () => import("@/views/permission/page.vue"),
         name: "PagePermission",
         meta: {
           title: "页面权限",
           roles: ["admin"] // 或者在子导航中设置角色
-        }
-      },
-      {
-        path: "directive",
-        component: () => import("@/views/permission/directive.vue"),
-        name: "DirectivePermission",
-        meta: {
-          title: "指令权限" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
         }
       }
     ]

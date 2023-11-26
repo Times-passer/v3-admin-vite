@@ -26,9 +26,9 @@ const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
 }
 
 export const usePermissionStore = defineStore("permission", () => {
-  const count = ref(5)
-  const age = ref(22)
-  const double = computed(() => count.value * 2)
+  // const count = ref(5)
+  // const age = ref(22)
+  // const double = computed(() => count.value * 2)
 
   const routes = ref<RouteRecordRaw[]>([])
   const dynamicRoutes = ref<RouteRecordRaw[]>([])
@@ -39,7 +39,7 @@ export const usePermissionStore = defineStore("permission", () => {
     dynamicRoutes.value = routeSettings.thirdLevelRouteCache ? flatMultiLevelRoutes(accessedRoutes) : accessedRoutes
   }
 
-  return { routes, dynamicRoutes, setRoutes, count, age, double }
+  return { routes, dynamicRoutes, setRoutes }
 })
 
 /** 在 setup 外使用 */
